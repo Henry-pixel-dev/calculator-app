@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Calculator app</title>
+  <link rel="stylesheet" href="src/output.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="bg-[hsl(var(--bg-main))]">
+
+  <main class="max-w-128 container min-h-screen mx-auto flex flex-col space-y-6 items-center justify-center">
+    <div class="flex flex-row justify-between w-full">
+      <h1 class="text-[hsl(var(--text-primary))] text-2xl font-bold">
+        calc
+      </h1>
+
+      <div class="flex flex-row space-x-6 items-end">
+        <p class="text-[hsl(var(--text-primary))]">
+          THEME
+        </p>
+        <div class="flex flex-col space-y-2">
+          <div class="flex flex-row space-x-6">
+            <p class="text-[hsl(var(--text-primary))]">
+              1
+            </p>
+            <p class="text-[hsl(var(--text-primary))]">
+              2
+            </p>
+            <p class="text-[hsl(var(--text-primary))]">
+              3
+            </p>
+          </div>
+          <div class="w-full p-0 h-6 bg-[hsl(var(--bg-secondary))] rounded-2xl relative">
+            <div class="after:absolute after:content-[''] after:top-1 after:left-1 after:w-4 after:h-4 after:rounded-full after:bg-[hsl(var(--key-accent-bg))]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[hsl(var(--bg-screen))] p-6 w-full rounded-md  flex flex-col items-end">
+      <p id="updateDisplay" class="text-4xl font-bold text-[hsl(var(--text-primary))]">
+        123
+        <!-- we gonna 123 remove no forget   -->
+      </p>
+    </div>
+
+    <form action="" class="bg-[hsl(var(--bg-secondary))] w-full p-6 rounded-md grid grid-rows-4 grid-cols-4 gap-4">
+      <button data-type="Number" data-value="0" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-2 row-start-4">
+        0
+      </button>
+      <button data-type="Number" data-value="1" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-3">
+        1
+      </button>
+      <button data-type="Number" data-value="2" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-2 row-start-3">
+        2
+      </button>
+      <button data-type="Number" data-value="3" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-3 row-start-3">
+        3
+      </button>
+      <button data-type="Number" data-value="4" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-2">
+        4
+      </button>
+      <button data-type="Number" data-value="5" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-2 row-start-2">
+        5
+      </button>
+      <button data-type="Number" data-value="6" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-3 row-start-2">
+        6
+      </button>
+      <button data-type="Number" data-value="7" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-1">
+        7
+      </button>
+      <button data-type="Number" data-value="8" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-2 row-start-1">
+        8
+      </button>
+      <button data-type="Number" data-value="9" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-3 row-start-1">
+        9
+      </button>
+      <button data-type="Operator" data-value="+" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-2">
+        +
+      </button>
+      <button data-type="Operator" data-value="-" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-3">
+        -
+      </button>
+      <button data-type="Operator" data-value="*" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-4">
+        &times;
+      </button>
+      <button data-type="Operator" data-value="/" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-3 row-start-4">
+        /
+      </button>
+      <button data-type="Operator" data-value="." class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-4">
+        .
+      </button>
+      <button data-type="delete" class="bg-[hsl(var(--key-primary-bg))] p-4 text-base rounded-md text-[hsl(var(--key-secondary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-1">
+        DEL
+      </button>
+      <button data-type="equal" class="bg-[hsl(var(--key-accent-bg))] p-4 text-base rounded-md text-[hsl(var(--key-secondary-bg))] font-bold shadow-md shadow-[hsl(var(--key-accent-shadow))] col-start-3 col-end-5 row-start-5">
+        =
+      </button>
+      <button data-type="Reset" class="bg-[hsl(var(--key-primary-bg))] p-4 text-base rounded-md text-[hsl(var(--key-secondary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 col-end-3 row-start-5">
+        RESET
+      </button>
+    </form>
+  </main>
+  
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Henry</a>.
+    </div>
+  </footer>
+</body>
+</html>
