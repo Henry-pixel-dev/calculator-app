@@ -14,11 +14,13 @@
     --key-primary-shadow: 224 28% 35%; /* Navy 800 */
     
     /* Keys - Accent (Red keys - delete/reset) */
+    --key-accent-primary:225 21% 49%;
     --key-accent-bg: 6 63% 50%;       /* Red 600 */
     --key-accent-shadow: 6 70% 34%;   /* Red 800 */
     
     /* Keys - Secondary (Number keys) */
     --key-secondary-bg: 0 0% 90%;     /* Gray 200 */
+    --key-secondary: 0 0% 90%; 
     --key-secondary-shadow: 28 16% 65%; /* Gray orange 400 */
     
     /* Text */
@@ -40,11 +42,13 @@ body.theme-light {
     --key-primary-shadow: 185 58% 25%; /* Blue 600 */
     
     /* Keys - Accent (Orange keys - delete/reset) */
+    --key-accent-primary:185 42% 37%;
     --key-accent-bg: 25 98% 40%;      /* Orange 700 */
     --key-accent-shadow: 25 99% 27%;  /* Orange 800 */
     
     /* Keys - Secondary (Number keys) */
     --key-secondary-bg: 0 0% 90%;     /* Grey 200 */
+    --key-secondary: 0 0% 90%; 
     --key-secondary-shadow: 35 11% 61%; /* Grey orange 450 */
     
     /* Text */
@@ -57,20 +61,22 @@ body.theme-light {
    ============================================ */
 body.theme-purple {
     /* Backgrounds */
-    --bg-main: 268 75% 9%;            /* Purple 950 */
+    --bg-main: 268, 75%, 9%;            /* Purple 950 */
     --bg-secondary: 268 71% 12%;      /* Purple 900 - toggle, keypad */
     --bg-screen: 268 71% 12%;         /* Purple 900 - screen */
     
     /* Keys - Primary (Dark Purple keys) */
-    --key-primary-bg: 281 89% 26%;    /* Purple 800 */
+    --key-primary-bg: 52 100% 62%;    /* Purple 800 */
     --key-primary-shadow: 285 91% 52%; /* Purple 400 */
     
     /* Keys - Accent (Cyan keys - delete/reset) */
+    --key-accent-primary:281, 89%, 26%;
     --key-accent-bg: 176 100% 44%;    /* Cyan 500 */
     --key-accent-shadow: 177 92% 70%; /* Cyan 400 */
     
     /* Keys - Secondary (Number keys) */
     --key-secondary-bg: 268 47% 21%;  /* Purple 850 */
+    --key-secondary: 0 0% 100%; 
     --key-secondary-shadow: 290 70% 36%; /* Purple 750 */
     
     /* Text */
@@ -78,4 +84,20 @@ body.theme-purple {
     --text-secondary: 198 20% 13%;    /* Blue 950 - on light keys */
 }
 
+
+.scroll2::after{
+    position: absolute;
+    content: '';
+    transform: translateX(1.5rem);
+}
+.scroll3::after{
+    position: absolute;
+    content: '';
+    transform: translateX(3rem);
+}
+.scroll1::after{
+    position: absolute;
+    content: '';
+    transform: translateX(0.05rem);
+}
 

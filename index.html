@@ -38,8 +38,8 @@
               3
             </p>
           </div>
-          <div class="w-full p-0 h-6 bg-[hsl(var(--bg-secondary))] rounded-2xl relative">
-            <div class="after:absolute after:content-[''] after:top-1 after:left-1 after:w-4 after:h-4 after:rounded-full after:bg-[hsl(var(--key-accent-bg))]"></div>
+          <div id="scrollBg" class="w-full p-0 h-6 bg-[hsl(var(--bg-secondary))] rounded-2xl relative">
+            <div id="scrolls" class="after:absolute after:content-[''] after:top-1 after:left-1 after:w-4 after:h-4 after:rounded-full after:bg-[hsl(var(--key-accent-bg))]"></div>
           </div>
         </div>
       </div>
@@ -48,7 +48,6 @@
     <div class="bg-[hsl(var(--bg-screen))] p-6 w-full rounded-md  flex flex-col items-end">
       <p id="updateDisplay" class="text-4xl font-bold text-[hsl(var(--text-primary))]">
         123
-        <!-- we gonna 123 remove no forget   -->
       </p>
     </div>
 
@@ -98,13 +97,13 @@
       <button data-type="Operator" data-value="." class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-4">
         .
       </button>
-      <button data-type="delete" class="bg-[hsl(var(--key-primary-bg))] p-4 text-base rounded-md text-[hsl(var(--key-secondary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-1">
+      <button data-type="delete" class="bg-[hsl(var(--key-accent-primary))] p-4 text-base rounded-md text-[hsl(var(--key-secondary))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-1">
         DEL
       </button>
       <button data-type="equal" class="bg-[hsl(var(--key-accent-bg))] p-4 text-base rounded-md text-[hsl(var(--key-secondary-bg))] font-bold shadow-md shadow-[hsl(var(--key-accent-shadow))] col-start-3 col-end-5 row-start-5">
         =
       </button>
-      <button data-type="Reset" class="bg-[hsl(var(--key-primary-bg))] p-4 text-base rounded-md text-[hsl(var(--key-secondary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 col-end-3 row-start-5">
+      <button data-type="Reset" class="bg-[hsl(var(--key-accent-primary))] p-4 text-base rounded-md text-[hsl(var(--key-secondary))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 col-end-3 row-start-5">
         RESET
       </button>
     </form>
@@ -116,5 +115,7 @@
       Coded by <a href="#">Henry</a>.
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
