@@ -1,6 +1,13 @@
 const scrollBall = document.querySelector('#scrolls');
 const scrollBg = document.querySelector('#scrollBg');
+const buttons = document.querySelectorAll('button');
+const display = document.querySelector('#updateDisplay')
 let currentTheme = 1;
+let currentInput = '';
+let previousInput = '';
+let operator = null;
+let calcResult = ''
+let isFirstNumber = true;
 
 
 scrollBg.addEventListener('click', () => {
@@ -27,4 +34,73 @@ scrollBg.addEventListener('click', () => {
 })
 
 
+buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        let type = this.dataset.type;
+        let value = this.dataset.value;
+        
+        if (type === 'Number'){
+            inputNum(value)
+            console.log(currentInput)
+        }
 
+        if (type === 'Operator') {
+            inputOp(value)
+            console.log(operator)
+        }
+
+        if (type === 'equal') {
+            sumMaths()
+        }
+
+        if(type === 'delete'){
+            deleteNum()
+        }
+
+        if(type === 'Reset') {
+            resetDOm()
+        }
+    })
+})
+
+function inputNum(values) {
+    if (isFirstNumber){
+        currentInput += values;
+        display.textContent = currentInput
+    } else {
+        previousInput += values;
+        display.textContent = `${currentInput} ${operator} ${previousInput}`
+    }
+}
+
+function inputOp(op) {
+    if (currentInput != '') {
+        isFirstNumber = false;
+        operator = op;
+        display.textContent = `${currentInput} ${operator}`;
+    }
+
+    if (previousInput != '' && currentInput != '') {
+        operator = op;
+        let sum = `${currentInput} ${operator} ${previousInput}`;
+        currentInput = sum;
+        previousInput = '';
+        isFirstNumber = false;
+        display.textContent = `${sum} ${operator}`;
+    }
+        
+}
+
+function sumMaths() {
+    let sum = `${currentInput} ${operator} ${previousInput}`;
+    display.textContent = eval(sum);
+    console.log(sum)
+    currentInput = ''
+    previousInput = '';
+    operator = ''
+    
+    if (operator != '') {
+        currentInput = sum;
+    }
+}

@@ -38,7 +38,7 @@
               3
             </p>
           </div>
-          <div id="scrollBg" class="w-full p-0 h-6 bg-[hsl(var(--bg-secondary))] rounded-2xl relative">
+          <div id="scrollBg" class="w-full p-0 h-6 bg-[hsl(var(--bg-secondary))] rounded-2xl relative cursor-pointer">
             <div id="scrolls" class="after:absolute after:content-[''] after:top-1 after:left-1 after:w-4 after:h-4 after:rounded-full after:bg-[hsl(var(--key-accent-bg))]"></div>
           </div>
         </div>
@@ -47,9 +47,9 @@
 
     <div class="bg-[hsl(var(--bg-screen))] p-6 w-full rounded-md  flex flex-col items-end">
       <p id="updateDisplay" class="text-4xl font-bold text-[hsl(var(--text-primary))]">
-        123
+        0
       </p>
-    </div>
+    </div> 
 
     <form action="" class="bg-[hsl(var(--bg-secondary))] w-full p-6 rounded-md grid grid-rows-4 grid-cols-4 gap-4">
       <button data-type="Number" data-value="0" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-2 row-start-4">
@@ -94,7 +94,7 @@
       <button data-type="Operator" data-value="/" class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-3 row-start-4">
         /
       </button>
-      <button data-type="Operator" data-value="." class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-4">
+      <button data-type="Number" data-value="." class="bg-[hsl(var(--key-secondary-bg))] p-4 text-2xl rounded-md text-[hsl(var(--key-primary-bg))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-1 row-start-4">
         .
       </button>
       <button data-type="delete" class="bg-[hsl(var(--key-accent-primary))] p-4 text-base rounded-md text-[hsl(var(--key-secondary))] font-bold shadow-md shadow-[hsl(var(--key-primary-shadow))] col-start-4 row-start-1">
