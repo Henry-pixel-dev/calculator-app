@@ -8,10 +8,10 @@ let previousInput = '';
 let operator = null;
 let calcResult = ''
 let isFirstNumber = true;
+let justCalculated = false;
 
 
 scrollBg.addEventListener('click', () => {
-    console.log('clicked')
     if (currentTheme === 1){
         scrollBall.classList.remove('scroll1', 'scroll2', 'scroll3');  
         scrollBall.classList.add('scroll2')
@@ -42,12 +42,10 @@ buttons.forEach(button => {
         
         if (type === 'Number'){
             inputNum(value)
-            console.log(currentInput)
         }
 
         if (type === 'Operator') {
             inputOp(value)
-            console.log(operator)
         }
 
         if (type === 'equal') {
@@ -65,6 +63,14 @@ buttons.forEach(button => {
 })
 
 function inputNum(values) {
+    if (justCalculated) {
+        currentInput = "";
+        previousInput = "";
+        operator = "";
+        isFirstNumber = true;
+        justCalculated = false;
+    }
+
     if (isFirstNumber){
         currentInput += values;
         display.textContent = currentInput
@@ -75,32 +81,58 @@ function inputNum(values) {
 }
 
 function inputOp(op) {
-    if (currentInput != '') {
+    justCalculated = false
+
+
+    if (currentInput != '' && previousInput === '') {
         isFirstNumber = false;
         operator = op;
         display.textContent = `${currentInput} ${operator}`;
-    }
-
-    if (previousInput != '' && currentInput != '') {
-        operator = op;
+    } else if (previousInput != '' && currentInput != '') {
         let sum = `${currentInput} ${operator} ${previousInput}`;
         currentInput = sum;
         previousInput = '';
         isFirstNumber = false;
+        operator = op;
         display.textContent = `${sum} ${operator}`;
     }
         
 }
 
+
 function sumMaths() {
     let sum = `${currentInput} ${operator} ${previousInput}`;
     display.textContent = eval(sum);
-    console.log(sum)
-    currentInput = ''
+    currentInput = sum.toString();
     previousInput = '';
-    operator = ''
+    operator = '';
+    justCalculated = true;
     
     if (operator != '') {
         currentInput = sum;
     }
+}
+
+function deleteNum() {
+    if (isFirstNumber && currentInput.length > 0) {
+       currentInput = currentInput.slice(0, -1)
+       display.textContent = currentInput
+    } else if (!isFirstNumber && previousInput.length > 0) {
+        previousInput = previousInput.slice(0, -1)
+        display.textContent = `${currentInput} ${operator} ${previousInput}`;
+    } else if (!isFirstNumber && previousInput.length === 0) {
+    operator = '';
+    isFirstNumber = true;
+    display.textContent = currentInput;
+    }
+}
+
+
+function resetDOm() {
+    currentInput = '';
+    previousInput = '';
+    operator = null;
+    isFirstNumber = true;
+    justCalculated = false;
+    display.textContent = '0';
 }
