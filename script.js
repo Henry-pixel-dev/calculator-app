@@ -6,7 +6,7 @@ let currentTheme = 1;
 let currentInput = '';
 let previousInput = '';
 let operator = null;
-let calcResult = ''
+let calcResult = '';
 let isFirstNumber = true;
 let justCalculated = false;
 
@@ -121,9 +121,13 @@ function deleteNum() {
         previousInput = previousInput.slice(0, -1)
         display.textContent = `${currentInput} ${operator} ${previousInput}`;
     } else if (!isFirstNumber && previousInput.length === 0) {
-    operator = '';
-    isFirstNumber = true;
-    display.textContent = currentInput;
+        operator = '';
+        isFirstNumber = true;
+        display.textContent = currentInput;
+    } else if (justCalculated) {
+        isFirstNumber = true;
+        currentInput = currentInput.slice(0, -1);
+        display.textContent = currentInput;
     }
 }
 
@@ -136,3 +140,4 @@ function resetDOm() {
     justCalculated = false;
     display.textContent = '0';
 }
+ 
