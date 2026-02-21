@@ -140,4 +140,3 @@ function resetDOm() {
     justCalculated = false;
     display.textContent = '0';
 }
- 
