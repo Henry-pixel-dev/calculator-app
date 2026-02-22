@@ -110,11 +110,12 @@ function inputOp(op) {
         display.textContent = `${currentInput} ${operator}`;
     } else if (previousInput != '' && currentInput != '') {
         let sum = `${currentInput} ${operator} ${previousInput}`;
-        currentInput = sum;
+        let sumResult = eval(sum);
+        currentInput = sumResult.toString();
         previousInput = '';
         isFirstNumber = false;
         operator = op;
-        display.textContent = `${sum} ${operator}`;
+        display.textContent = `${currentInput} ${operator}`;
     }
         
 }
@@ -122,8 +123,10 @@ function inputOp(op) {
 
 function sumMaths() {
     let sum = `${currentInput} ${operator} ${previousInput}`;
-    display.textContent = eval(sum);
-    currentInput = sum.toString();
+    let sumResult = eval(sum);
+    display.textContent = sumResult;
+    currentInput = sumResult.toString();
+    console.log(currentInput);
     previousInput = '';
     operator = '';
     justCalculated = true;
