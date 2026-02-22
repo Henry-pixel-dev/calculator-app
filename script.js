@@ -1,3 +1,19 @@
+window.addEventListener('DOMContentLoaded', () => {
+    let savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        applyTheme(Number(savedTheme));
+    } 
+    else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme(3); 
+        } else {
+            applyTheme(1);  
+        }
+    }
+});
+
+
 const scrollBall = document.querySelector('#scrolls');
 const scrollBg = document.querySelector('#scrollBg');
 const buttons = document.querySelectorAll('button');
@@ -11,26 +27,30 @@ let isFirstNumber = true;
 let justCalculated = false;
 
 
-scrollBg.addEventListener('click', () => {
-    if (currentTheme === 1){
-        scrollBall.classList.remove('scroll1', 'scroll2', 'scroll3');  
-        scrollBall.classList.add('scroll2')
-        document.body.classList.remove('theme-purple', 'theme-light');
+function applyTheme(themeNumer) {
+    scrollBall.classList.remove('scroll1', 'scroll2', 'scroll3'); 
+    document.body.classList.remove('theme-light', 'theme-purple');
+
+    if (themeNumer === 1) {
+        scrollBall.classList.add('scroll1');
+    } else if (themeNumer === 2) {
+        scrollBall.classList.add('scroll2');
         document.body.classList.add('theme-light');
-        currentTheme = 2
-    } else if (currentTheme === 2){
-        scrollBall.classList.remove('scroll1', 'scroll2', 'scroll3');  
-        scrollBall.classList.add('scroll3')
-        
-        document.body.classList.remove('theme-light', 'theme-purple');
+    } else if (themeNumer === 3) {
+        scrollBall.classList.add('scroll3');
         document.body.classList.add('theme-purple');
-        currentTheme = 3
-    } else {
-        scrollBall.classList.remove('scroll1', 'scroll2', 'scroll3'); 
-        scrollBall.classList.add('scroll1')
-        document.body.classList.remove('theme-light', 'theme-purple');
-        currentTheme = 1
-    }    
+    }
+
+    localStorage.setItem('theme', themeNumer.toString());
+    currentTheme = themeNumer;
+}
+
+scrollBg.addEventListener('click', () => {
+    let nextTheme;
+    if (currentTheme === 1) nextTheme = 2;
+    else if (currentTheme === 2) nextTheme = 3;
+    else nextTheme = 1;
+    applyTheme(nextTheme);
 })
 
 
